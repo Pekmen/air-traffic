@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 /* Higher order component for extracting geolocation logic.
    The state is comprised of data about geoloc availability, latitude and longitude of user,
    and if something goes wrong, an error message will be populated with relative information.
@@ -16,7 +17,6 @@ function withGeolocation(WrappedComponent) {
       };
       this.geoFindMe.bind(this);
     }
-
 
     componentDidMount() {
       this.geoFindMe();
@@ -49,7 +49,6 @@ function withGeolocation(WrappedComponent) {
         }
       });
     }
-
 
     // For cleaner usage in child components,
     // state is packed into a single {geoloc} object,
