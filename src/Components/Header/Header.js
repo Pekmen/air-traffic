@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
@@ -16,9 +16,9 @@ const Header = (props) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <NavItem eventKey={1}>
+          <li role="presentation" eventKey={1} className="nav-item">
             <Link to="/" href="/">Home</Link>
-          </NavItem>
+          </li>
           <NavDropdown eventKey={2} title="APIs used" id="basic-nav-dropdown">
             <MenuItem eventKey={2.1} href={VRS_URL}>
               Virtual Radar Server
