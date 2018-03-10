@@ -7,18 +7,24 @@ import Airplane from './Pages/Airplane/Airplane';
 // import logo from './logo.svg';
 import './App.css';
 
-const App = (props) => {
-  console.log(props);
-  return (
-    <div className="App">
-      <Header />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/airplane/:_planeId" component={Airplane} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
-  );
-};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/airplane/:_planeId" component={Airplane} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    );
+  }
+}
 
 export default App;

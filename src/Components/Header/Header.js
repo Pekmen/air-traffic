@@ -16,9 +16,7 @@ const Header = (props) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <li role="presentation" eventKey={1} className="nav-item">
-            <Link to="/" href="/">Home</Link>
-          </li>
+          <NavItem eventKey={1} componentClass={Link} href="/" to="/" >Home</NavItem>
           <NavDropdown eventKey={2} title="APIs used" id="basic-nav-dropdown">
             <MenuItem eventKey={2.1} href={VRS_URL}>
               Virtual Radar Server
