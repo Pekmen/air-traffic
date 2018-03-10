@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Home = (props) => {
+const NotFound = (props) => {
   console.log('props___', props);
   return (
-    <h1>Home</h1>
+    <h1>Not Found</h1>
   );
 };
 
-export default Home;
+export default NotFound;
