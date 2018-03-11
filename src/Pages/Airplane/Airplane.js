@@ -7,7 +7,7 @@ import AirplaneInfo from '../../Components/AirplaneInfo/AirplaneInfo';
 */
 const Airplane = (props) => {
   const { _planeId } = props.match.params;
-  let airplane = {};
+  let airplane;
   if (props.airTraffic.acList) {
     airplane = props.airTraffic.acList.filter(plane =>
       String(plane.Id) === String(_planeId))[0];
@@ -15,14 +15,10 @@ const Airplane = (props) => {
   return (
     <section>
       {
-        (props.airTraffic.acList)
-        ? (
-          <section>
-            <AirplaneInfo airplane={airplane} />
-          </section>
-        )
-        : ''
-    }
+        (airplane)
+        ? <AirplaneInfo airplane={airplane} />
+        : <h1>There is no data for airplane with that Id</h1>
+      }
     </section>
   );
 };
