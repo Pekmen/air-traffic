@@ -10,8 +10,7 @@ const Airplane = (props) => {
   let airplane = {};
   if (props.airTraffic.acList) {
     airplane = props.airTraffic.acList.filter(plane =>
-      plane.Id == _planeId.toString()
-    )[0];
+      String(plane.Id) === String(_planeId))[0];
   }
   return (
     <section>

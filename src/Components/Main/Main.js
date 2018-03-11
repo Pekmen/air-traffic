@@ -10,7 +10,8 @@ import withAircraftFeed from '../../Containers/WithAircraftFeed';
 
 import './Main.css';
 
-
+const REACT_APP_API_URI = 'http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json';
+const REACT_APP_CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 /* Main component with router switcher
 */
 class Main extends React.Component {
@@ -49,9 +50,10 @@ Main.propTypes = {
   }).isRequired,
 };
 
-// Wrapping Main inside withAircraftFeed HOC, response object will be available inside Main props
+// Wrapping Main inside withAircraftFeed HOC,
+// response object from API will be available inside Main props
 export default withAircraftFeed(
   Main,
-  process.env.REACT_APP_API_URI,
-  process.env.REACT_APP_CORS_PROXY,
+  REACT_APP_API_URI,
+  REACT_APP_CORS_PROXY,
 );
