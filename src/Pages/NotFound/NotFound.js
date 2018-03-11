@@ -1,8 +1,8 @@
 import React from 'react';
 
-const NotFound = (props) => {
+const NotFound = () => {
   return (
-    <h1>Not Found</h1>
+    <h1 style={{ textAlign: 'left' }}>Sorry, that page was not found</h1>
   );
 };
 
