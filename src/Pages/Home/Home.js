@@ -7,11 +7,7 @@ const Home = (props) => {
   return (
     <div>
       <IntroSection />
-      {
-        (props.airTraffic.acList) ? (
-          <AirplaneListing {...props} />
-        ) : ''
-      }
+      <AirplaneListing {...props} />
     </div>
   );
 };

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { ListGroup, ListGroupItem, Row, Col } from 'react-bootstrap';
 import AirplaneCard from '../AirplaneCard/AirplaneCard';
 
-
+/* Listing component. Will render only if airTraffic api data is populated
+*/
 const AirplaneListing = (props) => {
   return (
     <section>
@@ -21,11 +22,12 @@ const AirplaneListing = (props) => {
             </Col>
           </Row>
         </ListGroupItem>
-        {props.airTraffic.acList
+        {props.airTraffic.acList ?
+          props.airTraffic.acList
           .sort((elem1, elem2) => elem1.Alt < elem2.Alt)
           .map((airplane) => {
-          return <AirplaneCard key={airplane.Id} airplane={airplane} />;
-          })
+            return <AirplaneCard key={airplane.Id} airplane={airplane} />;
+          }) : ''
         }
       </ListGroup>
     </section>

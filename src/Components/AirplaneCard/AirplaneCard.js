@@ -5,6 +5,9 @@ import { ListGroupItem, Row, Col } from 'react-bootstrap';
 
 import './AirplaneCard.css';
 
+
+/* Individual Airplane card component with basic info
+*/
 const AirplaneCard = (props) => {
   const { airplane } = props;
   const direction = airplane.Trak > 180 ? 'west' : 'east';
