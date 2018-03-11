@@ -24,7 +24,7 @@ function withAircraftFeed(WrappedComponent, API_URI, CORS_PROXY) {
         this.getApiResponse();
 
         // fetching every one minute
-        this.timer = setInterval(() => this.getApiResponse(), 1000);
+        this.timer = setInterval(() => this.getApiResponse(), 10000);
       }
     }
 
