@@ -6,7 +6,7 @@ import React from 'react';
    and if something goes wrong, an error message will be populated with relative information.
    Currently used to wrap the <App /> component.
 */
-function withGeolocation(WrappedComponent) {
+const withGeolocation = (WrappedComponent) => {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -66,7 +66,7 @@ function withGeolocation(WrappedComponent) {
       );
     }
   };
-}
+};
 
 
 export default withGeolocation;

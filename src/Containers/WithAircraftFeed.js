@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 /* Higher order component for continuous fetch of aircraft data near user's position
    It will fire interval fetching when user geoloc data is available
 */
-function withAircraftFeed(WrappedComponent, API_URI, CORS_PROXY) {
+const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
   class _withAircraftFeed extends React.Component {
     constructor(props) {
       super(props);
