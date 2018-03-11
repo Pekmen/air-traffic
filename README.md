@@ -9,3 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 npm install
 npm start
 ```
+
+# WHY IS IT UGLY?
+
+There is not much data for complex UI decisions, and I focused more on functionality.
