@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Airplane = (props) => {
+  console.log('airplane props___', props);
   return (
     <h1>Airplane</h1>
   );
