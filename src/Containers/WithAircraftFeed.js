@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Alert from 'react-s-alert';
 
 /* Higher order component for continuous fetch of aircraft data near user's position
    It will fire interval fetching when user geoloc data is available
@@ -24,7 +25,7 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
         this.getApiResponse();
 
         // fetching every one minute
-        this.timer = setInterval(() => this.getApiResponse(), 10000);
+        this.timer = setInterval(() => this.getApiResponse(), 60000);
       }
     }
 
@@ -34,7 +35,7 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
 
     getApiResponse() {
       const { lat, lng } = this.props.geoloc;
-      const QUERY = `?lat=${lat}&lng=${lng}&fDstL=0&fDstU=100`;
+      const QUERY = `?lat=${lat}&lng=${lng}&fDstL=0&fDstU=80`;
       const FULL_URL = `${CORS_PROXY}${API_URI}${QUERY}`;
 
       // origin header is needed to bypass the CORS via proxy
@@ -51,7 +52,13 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
           return data;
         })
         .catch((error) => {
-          console.log(error);
+          Alert.error("<h1>Couldn't fetch data from server. Try again later.</h1>", {
+            position: 'top',
+            effect: 'stackslide',
+            beep: false,
+            timeout: 'none',
+            offset: 100,
+          });
           return error;
         });
     }
@@ -75,6 +82,6 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
     geoloc: geoLocPropType.isRequired,
   };
   return _withAircraftFeed;
-}
+};
 
 export default withAircraftFeed;

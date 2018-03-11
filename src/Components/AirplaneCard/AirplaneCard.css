@@ -1,0 +1,8 @@
+.plane-direction {
+  width: 16px;
+  height: 16px;
+}
+
+.airplane-card:hover {
+  background-color: rgb(230,230,250);
+}

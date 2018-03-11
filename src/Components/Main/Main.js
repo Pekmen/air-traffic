@@ -1,10 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
+import Alert from 'react-s-alert';
 import Home from '../../Pages/Home/Home';
 import Airplane from '../../Pages/Airplane/Airplane';
 import NotFound from '../../Pages/NotFound/NotFound';
 import withAircraftFeed from '../../Containers/WithAircraftFeed';
+
+import './Main.css';
 
 
 /* Main component with router switcher
@@ -16,8 +20,17 @@ class Main extends React.Component {
   }
 
   render() {
+    if (this.props.geoloc.errorMessage) {
+      Alert.error(this.props.geoloc.errorMessage, {
+        position: 'top',
+        effect: 'stackslide',
+        beep: false,
+        timeout: 'none',
+        offset: 70,
+      });
+    }
     return (
-      <main>
+      <main className="main-content">
         <Grid>
           <Switch>
             <Route exact path="/" render={() => <Home {...this.props} />} />
@@ -29,6 +42,12 @@ class Main extends React.Component {
     );
   }
 }
+
+Main.propTypes = {
+  geoloc: PropTypes.shape({
+    errorMessage: PropTypes.string,
+  }).isRequired,
+};
 
 // Wrapping Main inside withAircraftFeed HOC, response object will be available inside Main props
 export default withAircraftFeed(

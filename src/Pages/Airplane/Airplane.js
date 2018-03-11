@@ -31,9 +31,9 @@ const Airplane = (props) => {
 const airTrafficPropType = PropTypes.shape({
   acList: PropTypes.arrayOf(PropTypes.shape({
     Id: PropTypes.number.isRequired,
-    Alt: PropTypes.number.isRequired,
-    Call: PropTypes.string.isRequired,
-    Op: PropTypes.string.isRequired,
+    Alt: PropTypes.number,
+    Icao: PropTypes.string.isRequired,
+    Op: PropTypes.string,
   })),
 });
 

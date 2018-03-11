@@ -3,34 +3,37 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ListGroupItem, Row, Col } from 'react-bootstrap';
 
+import './AirplaneCard.css';
+
 const AirplaneCard = (props) => {
   const { airplane } = props;
+  const direction = airplane.Trak > 180 ? 'west' : 'east';
 
   return (
-    <article>
-      <ListGroupItem>
+    <ListGroupItem className="airplane-card">
+      <article>
         <Link to={`/airplane/${airplane.Id}`}>
           <Row className="show-grid">
-            <Col xs={12} sm={4}>
-              <img src="/airplane.svg" alt="Airplane shape" />
+            <Col xs={4} className="direction">
+              <img className="plane-direction" src={`/airplane-${direction}.svg`} alt="Airplane direction" />
             </Col>
-            <Col xs={6} sm={4}>
-              <span>Altitude: {airplane.Alt}</span>
+            <Col xs={4} className="call-code">
+              <span>{airplane.Icao}</span>
             </Col>
-            <Col xs={6} sm={4}>
-              <span>Call code: {airplane.Call}</span>
+            <Col xs={4} className="altitude">
+              <span>{airplane.Alt}</span>
             </Col>
           </Row>
         </Link>
-      </ListGroupItem>
-    </article>
+      </article>
+    </ListGroupItem>
   );
 };
 
 const airplanePropType = PropTypes.shape({
   Id: PropTypes.number.isRequired,
-  Alt: PropTypes.number.isRequired,
-  Call: PropTypes.string.isRequired,
+  Alt: PropTypes.number,
+  Icao: PropTypes.string.isRequired,
 });
 
 AirplaneCard.propTypes = {

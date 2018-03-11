@@ -1,0 +1,43 @@
+.info-wrapper {
+  margin-top: 0;
+}
+
+.manufacturer,
+.model,
+.destination {
+  text-align: left;
+}
+
+.manufacturer {
+  font-size: 60px;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.model {
+  color: rgb(105,105,105);
+  margin-bottom: 56px;
+}
+
+.destination {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.manufacturer-logo {
+  box-shadow: 3px 3px 1px #ccc;
+  -webkit-box-shadow: 3px 3px 1px #ccc;
+  -moz-box-shadow: 3px 3px 1px #ccc;
+}
+
+@media (max-width: 991px) {
+  .manufacturer,
+  .model,
+  .destination {
+    text-align: center;
+  }
+
+  .info-wrapper {
+    margin-top: 50px;
+  }
+}
