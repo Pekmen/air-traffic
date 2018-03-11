@@ -22,5 +22,6 @@ class App extends React.Component {
   }
 }
 
-
+// Wrapping App component inside withGeoLocation HOC, geoloc data will be passed to
+// App component as a prop
 export default withGeoLocation(App);
