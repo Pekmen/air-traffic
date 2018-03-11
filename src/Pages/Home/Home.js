@@ -1,19 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import AirplaneListing from '../../Components/AirplaneListing/AirplaneListing';
 
 const Home = (props) => {
   return (
-    (props.airTraffic.acList)
-    ? (
-      <ul>
-        {props.airTraffic.acList.map(airplane => {
-          let company = airplane.Op;
-          if (company) company = airplane.Op.replace(/ /g, '');
-          return <li key={airplane.Id}>{airplane.Call} - {airplane.Alt} - <img src={`https://logo.clearbit.com/${company}.com`} /></li>
-        })}
-      </ul>
-    )
-    : <p>no data</p>
+    (props.airTraffic.acList) ? (
+      <AirplaneListing {...props} />
+    ) : <p>no data</p>
   );
+};
+
+const airTrafficPropType = PropTypes.shape({
+  acList: PropTypes.arrayOf(PropTypes.shape({
+    Id: PropTypes.number.isRequired,
+    Alt: PropTypes.number.isRequired,
+    Call: PropTypes.string.isRequired,
+    Op: PropTypes.string.isRequired,
+  })),
+});
+
+Home.propTypes = {
+  airTraffic: airTrafficPropType.isRequired,
 };
 
 export default Home;

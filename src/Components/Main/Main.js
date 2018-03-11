@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Grid } from 'react-bootstrap';
 import Home from '../../Pages/Home/Home';
 import Airplane from '../../Pages/Airplane/Airplane';
 import NotFound from '../../Pages/NotFound/NotFound';
@@ -17,11 +18,13 @@ class Main extends React.Component {
   render() {
     return (
       <main>
-        <Switch>
-          <Route exact path="/" render={() => <Home {...this.props} />} />
-          <Route path="/airplane/:_planeId" render={() => <Airplane {...this.props} />} />
-          <Route component={NotFound} />
-        </Switch>
+        <Grid>
+          <Switch>
+            <Route exact path="/" render={() => <Home {...this.props} />} />
+            <Route path="/airplane/:_planeId" render={() => <Airplane {...this.props} />} />
+            <Route component={NotFound} />
+          </Switch>
+        </Grid>
       </main>
     );
   }

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-const Header = (props) => {
+const Header = () => {
   const VRS_URL = 'http://www.virtualradarserver.co.uk/Documentation/Formats/AircraftList.aspx';
   const CLEARBIT_URL = 'https://clearbit.com/logo';
 
