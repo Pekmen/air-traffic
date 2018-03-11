@@ -12,4 +12,4 @@ npm start
 
 ## WHY IS IT UGLY?
 
-There is not much data for complex UI decisions, and I focused more on functionality.
+There is not much data for complex UI decisions, and I focused my time on functionality.
