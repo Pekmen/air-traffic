@@ -2,6 +2,8 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+import './AirplaneInfo.css';
+
 
 /* Component for showing airplane info data:
    Manufacturer, Model, Flight Origin and Destination
@@ -15,15 +17,17 @@ const AirplaneInfo = (props) => {
     <div className="airplane-info">
       <Row>
         <Col md={4}>
-          <img src={`https://logo-core.clearbit.com/${Man}.com?size=250`} alt={`${Man} logo`} />
+          <img className="manufacturer-logo" src={`https://logo-core.clearbit.com/${Man}.com?size=250`} alt={`${Man} logo`} />
         </Col>
-        <Col md={4}>
-          <h1>{Man}</h1>
-          <h2>{Mdl}</h2>
-        </Col>
-        <Col md={4}>
-          <p>From: {From}</p>
-          <p>To: {To}</p>
+        <Col md={8}>
+          <div className="info-wrapper">
+            <h1 className="manufacturer">{Man}</h1>
+            <h2 className="model">{Mdl}</h2>
+            <div className="destination">
+              <p><b>From:</b> {From || 'Info Unavailable'}</p>
+              <p><b>To:</b> {To || 'Info Unavailable'}</p>
+            </div>
+          </div>
         </Col>
       </Row>
     </div>
@@ -33,8 +37,8 @@ const AirplaneInfo = (props) => {
 const airplanePropType = PropTypes.shape({
   Man: PropTypes.string.isRequired,
   Mdl: PropTypes.string.isRequired,
-  From: PropTypes.string.isRequired,
-  To: PropTypes.string.isRequired,
+  From: PropTypes.string,
+  To: PropTypes.string,
 });
 
 AirplaneInfo.propTypes = {

@@ -35,7 +35,7 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
 
     getApiResponse() {
       const { lat, lng } = this.props.geoloc;
-      const QUERY = `?lat=${lat}&lng=${lng}&fDstL=0&fDstU=100`;
+      const QUERY = `?lat=${lat}&lng=${lng}&fDstL=0&fDstU=980`;
       const FULL_URL = `${CORS_PROXY}${API_URI}${QUERY}`;
 
       // origin header is needed to bypass the CORS via proxy
@@ -82,6 +82,6 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
     geoloc: geoLocPropType.isRequired,
   };
   return _withAircraftFeed;
-}
+};
 
 export default withAircraftFeed;
