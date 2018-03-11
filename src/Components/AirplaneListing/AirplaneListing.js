@@ -24,7 +24,7 @@ const AirplaneListing = (props) => {
         </ListGroupItem>
         {props.airTraffic.acList ?
           props.airTraffic.acList
-          .sort((elem1, elem2) => elem1.Alt < elem2.Alt)
+          .sort((elem1, elem2) => elem2.Alt - elem1.Alt)
           .map((airplane) => {
             return <AirplaneCard key={airplane.Id} airplane={airplane} />;
           }) : ''
