@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
+import Alert from 'react-s-alert';
 import Home from '../../Pages/Home/Home';
 import Airplane from '../../Pages/Airplane/Airplane';
 import NotFound from '../../Pages/NotFound/NotFound';
@@ -16,6 +17,15 @@ class Main extends React.Component {
   }
 
   render() {
+    if (this.props.geoloc.errorMessage) {
+      Alert.error(this.props.geoloc.errorMessage, {
+        position: 'top',
+        effect: 'stackslide',
+        beep: false,
+        timeout: 'none',
+        offset: 70,
+      });
+    }
     return (
       <main>
         <Grid>

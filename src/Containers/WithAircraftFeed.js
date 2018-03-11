@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Alert from 'react-s-alert';
 
 /* Higher order component for continuous fetch of aircraft data near user's position
    It will fire interval fetching when user geoloc data is available
@@ -51,7 +52,13 @@ const withAircraftFeed = (WrappedComponent, API_URI, CORS_PROXY) => {
           return data;
         })
         .catch((error) => {
-          console.log(error);
+          Alert.error("<h1>Couldn't fetch data from server. Try again later.</h1>", {
+            position: 'top',
+            effect: 'stackslide',
+            beep: false,
+            timeout: 'none',
+            offset: 100,
+          });
           return error;
         });
     }

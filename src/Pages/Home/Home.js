@@ -6,7 +6,7 @@ const Home = (props) => {
   return (
     (props.airTraffic.acList) ? (
       <AirplaneListing {...props} />
-    ) : <p>no data</p>
+    ) : ''
   );
 };
 

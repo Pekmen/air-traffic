@@ -3,27 +3,30 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ListGroupItem, Row, Col } from 'react-bootstrap';
 
+import './AirplaneCard.css';
+
 const AirplaneCard = (props) => {
   const { airplane } = props;
+  const direction = airplane.Trak > 180 ? 'west' : 'east';
 
   return (
-    <article>
-      <ListGroupItem>
+    <ListGroupItem className="airplane-card">
+      <article>
         <Link to={`/airplane/${airplane.Id}`}>
           <Row className="show-grid">
             <Col xs={12} sm={4}>
-              <img src="/airplane.svg" alt="Airplane shape" />
+              <img className="plane-direction" src={`/airplane-${direction}.svg`} alt="Airplane direction" />
             </Col>
-            <Col xs={6} sm={4}>
+            <Col xs={12} sm={4}>
               <span>Altitude: {airplane.Alt}</span>
             </Col>
-            <Col xs={6} sm={4}>
+            <Col xs={12} sm={4}>
               <span>Call code: {airplane.Call}</span>
             </Col>
           </Row>
         </Link>
-      </ListGroupItem>
-    </article>
+      </article>
+    </ListGroupItem>
   );
 };
 

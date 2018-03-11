@@ -1,4 +1,8 @@
 import React from 'react';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/stackslide.css';
+
 import withGeoLocation from './Containers/WithGeoLocation';
 import Header from './Components/Header/Header';
 import Main from './Components/Main/Main';
@@ -13,11 +17,11 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('app props___', this.props);
     return (
       <div className="App">
         <Header />
         <Main {...this.props} />
+        <Alert stack={{ limit: 3 }} />
       </div>
     );
   }
