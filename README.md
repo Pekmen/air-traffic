@@ -6,6 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## HOW DO I RUN IT?
 
 ```
+git clone https://github.com/Pekmen/air-traffic.git
+cd air-traffic
 npm install
 npm start
 ```
